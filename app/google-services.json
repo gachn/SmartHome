@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "232317867439",
+    "firebase_url": "https://home-automation-61f6c.firebaseio.com",
+    "project_id": "home-automation-61f6c",
+    "storage_bucket": "home-automation-61f6c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:232317867439:android:81a6af3aac9ca53f",
+        "android_client_info": {
+          "package_name": "com.home.smart.smarthome"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "232317867439-eluas3rd4a68usrv5u1kkns7s5i7eepu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCE0lFGe5biTn37sb61PwqSzVACEjDtW-Q"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

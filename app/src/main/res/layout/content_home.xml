@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.home.smart.smarthome.HomeActivity"
+    tools:showIn="@layout/activity_home"
+    android:clickable="true"
+    app:cardElevation="3dp"
+    app:cardBackgroundColor="#04092b"
+    app:cardUseCompatPadding="true">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+
+        android:layout_height="match_parent">
+    <RelativeLayout
+          android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="7dp"
+        android:background="#efebe9"
+        >
+
+        <ImageView
+            android:id="@+id/kitchenLight_icon"
+            android:layout_width="50dp"
+            android:background="@drawable/a"
+            android:layout_height="50dp"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="6dp"
+            android:layout_marginRight="6dp" />
+
+        <TextView
+            android:id="@+id/kitchenLightText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#d50000"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/kitchenLight_icon"
+            android:text="Kitchen Light"
+            android:textSize="17dp"
+            android:textStyle="bold"
+            android:layout_toRightOf="@id/kitchenLight_icon" />
+
+        <Switch
+            android:id="@+id/kitchenLight"
+            android:onClick="switchListner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:textOn=""
+            android:textOff=""
+            app:showText="true"
+            android:layout_alignParentRight="true" />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="7dp"
+        android:background="#efebe9"
+        >
+        <ImageView
+            android:id="@+id/roomLight_icon"
+            android:layout_width="50dp"
+            android:background="@drawable/a"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+        <TextView
+            android:id="@+id/roomLightText"
+            android:layout_width="wrap_content"
+            android:textColor="#d50000"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/roomLight_icon"
+            android:layout_centerVertical="true"
+            android:text="Room Light"
+            android:textSize="17dp"
+            android:textStyle="bold"
+            android:layout_toRightOf="@id/roomLight_icon" />
+
+        <Switch
+            android:id="@+id/roomLight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:onClick="switchListner"
+            android:textOn=""
+            android:textOff=""
+            app:showText="true"
+            android:layout_alignParentRight="true" />
+
+
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="7dp"
+        android:background="#efebe9"
+        >
+
+        <ImageView
+            android:id="@+id/roomFan_icon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/a"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="6dp"
+            android:layout_marginRight="6dp" />
+
+        <TextView
+            android:id="@+id/roomFanText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#d50000"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/roomFan_icon"
+            android:text="Room Fan"
+            android:textSize="17dp"
+            android:textStyle="bold"
+            android:layout_toRightOf="@id/roomFan_icon" />
+
+        <Switch
+            android:id="@+id/roomFan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:textOn=""
+            android:onClick="switchListner"
+            android:textOff=""
+            app:showText="true"
+            android:layout_alignParentRight="true" />
+
+    </RelativeLayout>
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>
