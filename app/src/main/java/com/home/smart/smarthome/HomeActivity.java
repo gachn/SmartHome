@@ -1,5 +1,6 @@
 package com.home.smart.smarthome;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.renderscript.Double2;
 import android.support.design.widget.FloatingActionButton;
@@ -13,6 +14,7 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DataSnapshot;
@@ -30,12 +32,14 @@ public class HomeActivity extends AppCompatActivity {
     DatabaseReference roomLightRef=mRef.child("roomLight");
     DatabaseReference roomFanRef=mRef.child("roomFan");
     DatabaseReference humidityRef=mRef.child("Humidity");
+    boolean flag[]=new boolean[3];
     void log(String s){
         System.out.println("Log Msg ="+s);
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        flag[0]=flag[1]=flag[2]=false;
         setContentView(R.layout.activity_home);
         mRef.keepSynced(true);
         temperature=(TextView) findViewById(R.id.TemperatureDisplay);
@@ -43,8 +47,25 @@ public class HomeActivity extends AppCompatActivity {
         kitchenLight=(Switch)findViewById(R.id.kitchenLight);
         roomLight=(Switch)findViewById(R.id.roomLight);
         roomFan=(Switch)findViewById(R.id.roomFan);
-    }
+        try {
+            String data = getIntent().getExtras().getString("QRCODE");
+            checkForQR(data);
+        }
+        catch(Exception e){
 
+        }
+    }
+    public void checkForQR(String data){
+        Toast.makeText(getApplicationContext(),"Data : "+data,Toast.LENGTH_SHORT).show();
+        if(data.equals("123")){
+            Toast.makeText(getApplicationContext(),"in : "+flag[0],Toast.LENGTH_SHORT).show();
+            kitchenLightRef.setValue(!flag[0]);
+        }
+        if(data == "roomLight")
+        roomLightRef.setValue(roomLight.isChecked());
+        if(data == "roomFan")
+        roomFanRef.setValue(roomFan.isChecked());
+    }
     public void switchListner(View v){
         System.out.println(" View "+v.getId()+" is "+kitchenLight.isChecked() );
         switch (v.getId()){
@@ -90,6 +111,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Boolean update=dataSnapshot.getValue(Boolean.class);
+                flag[0]=update;
                 kitchenLight.setChecked(update);
             }
 
@@ -102,6 +124,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Boolean update=dataSnapshot.getValue(Boolean.class);
+                flag[1]=update;
                 roomLight.setChecked(update);
             }
 
@@ -114,6 +137,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Boolean update=dataSnapshot.getValue(Boolean.class);
+                flag[2]=update;
                 roomFan.setChecked(update);
             }
 
@@ -135,7 +159,10 @@ public class HomeActivity extends AppCompatActivity {
         allOff();
         super.onDestroy();
     }
-
+    public void QRButton(View v){
+        Intent in=new Intent(this,QRScannerActivity.class);
+        startActivity(in);
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

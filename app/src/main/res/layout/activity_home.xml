@@ -151,8 +151,6 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_home"
-        android:layout_height="370dp" />
-
+    <include layout="@layout/content_home" />
 
 </android.support.design.widget.CoordinatorLayout>
